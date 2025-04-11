@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+ <link href="stylesheet.css" rel="stylesheet ">   
+
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <h1>CALCLULATOR</h1>
+</head>
+<body>
+    
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="display" class="display" readonly>
+        </div>    
+     
+ <div class="button">
+<button class="side" onclick="clearResult()">AC</button>
+<button class="side" onclick="deleteResult()">DEL</button>
+<button class="side" onclick="insertValue('%')">%</button>
+<button class="side" onclick="insertValue('/')">/</button>
+<button onclick="insertValue('7')">7</button>
+<button onclick="insertValue('8')">8</button>
+<button onclick="insertValue('9')">9</button>
+<button class="side" onclick="insertValue('*')">*</button>
+<button onclick="insertValue('4')">4</button>
+<button onclick="insertValue('5')">5</button>
+<button onclick="insertValue('6')">6</button>
+<button class="side" onclick="insertValue('-')">-</button>
+<button onclick="insertValue('1')">1</button>
+<button onclick="insertValue('2')">2</button>
+<button onclick="insertValue('3')">3</button>
+<button class="side" onclick="insertValue('+')">+</button>
+<button class="side" onclick="insertValue('00')">00</button>
+<button onclick="insertValue('0')">0</button>
+<button onclick="insertValue('.')">.</button>
+<button class="side" onclick="calculate()">=</button>
+</div>   
+
+</div>
+</body>
+
+
+
+
+
+<script>
+        let display = document.getElementById('display');
+    let operand1='';
+    let operand2='';
+    let operator='';
+
+    function insertValue(value)
+    {
+        display.value+=value;
+    }
+    function clearResult()
+    {
+        display.value='';
+        operand1='';
+        operand2='';
+        operator='';
+    }
+    function deleteResult()
+    {
+        display.value=display.value.slice(0,-1);
+    }
+    function calculate()
+    {
+        try{
+            display.value=eval(display.value);
+        }
+        catch(error)
+        {
+            display.value="ERROR.";
+        }
+    }
+</script>
+</html>
